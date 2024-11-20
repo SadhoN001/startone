@@ -1,0 +1,16 @@
+{% extends 'base.html' %} {% block title %} TODO {% endblock %}
+
+{% block content %}
+
+    <h1>Todo List</h1>
+    <hr>
+    <ul>
+        {% for todo in todos %}
+        <li>
+            {{ todo.title }} (<b style="color: blue;">{{ todo.time | date:"jS F, Y" }}</b>): 
+                {% if todo.completed %} <b style="color: green;">Completed</b> {% else %} <b style="color: red;">NOT COMPLETED</b>
+                {% endif %}<br> <br>
+        </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
